@@ -20,32 +20,101 @@ def game():
     """
     # VARIABLES
     subject = None
-
-    # intro
-    print("-" * 40)
-    print(">>>>> Hello in an exercise game! <<<<<".center(40))
-    print("-" * 40)
-    player = input("Write down your name: ")
-    player = player.title()
-    print("-" * 40)
+    interlude = "-" * 40
     number_of_question = 1
     points = 0
+
+    # intro
+    print(interlude)
+    print(">>>>> Hello in an exercise game! <<<<<".center(40))
+    print(interlude)
+    player = input("Write down your name: ")
+    player = player.title()
+    print(interlude)
 
     # choose version of game
     print(
         f"Welcome in the game {player}! What do you want to do?\nLearn: type 'a'\nPlay game: type 'b'"
     )
     learn_or_play = input("Your choice: ")
+    print(interlude)
 
     # validating choice
     while learn_or_play.upper() not in "AB":
         learn_or_play = input(
-            "Bad answer! You have to choose from 'a' (which stands for learning) or 'b' (which stands for "
+            "Bad answer! You have to choose from 'a' (which stands for learning)\nor 'b' (which stands for "
             "playing game). Remember to type letter a or b without quotes! "
         )
+        print(interlude)
+
+    if learn_or_play.upper() == "A":
+        # choose subject of questions
+        print(
+            f"Welcome {player} in learning mode! Now, you have to choose, which subject you want to use in learning. "
+            f"Choose from below:\n"
+            f"Methods on dictionaries: type 'a'\n"
+            f"Methods on integers/boolean: type 'b'\n"
+            f"Methods on floats: type 'c'\n"
+            f"Methods on lists: type 'd'\n"
+            f"Methods on sets: type 'e'\n"
+            f"Methods on strings: type 'f'\n"
+            f"Methods on tuples: type 'g'"
+        )
+        subject_input = input("Your choice: ")
+        print(interlude)
+
+        # validating subject
+        while subject_input.upper() not in "ABCDEFG":
+            subject_input = input(f"Oopsie! Bad answer! Type again: ")
+            print(interlude)
+
+        # adding subject dict
+        if subject_input.upper() == "A":
+            subject = dict_methods
+        elif subject_input.upper() == "B":
+            subject = int_bool_methods
+        elif subject_input.upper() == "C":
+            subject = float_methods
+        elif subject_input.upper() == "D":
+            subject = list_methods
+        elif subject_input.upper() == "E":
+            subject = set_method
+        elif subject_input.upper() == "F":
+            subject = string_methods
+        elif subject_input.upper() == "G":
+            subject = tuple_methods
+
+        print(f"Let the learning begin {player}!")
+        print(interlude)
+
+        # beginning of learning mode
+        while True:
+            method_item = random.choice(list(subject.items()))
+            method_key = method_item[0]
+            method_value = method_item[1]
+
+            print(f"Method: {method_key.title()}")
+            answer = input(
+                "Type:\n"
+                "If you want to get description of above method: y\n"
+                "If you want to skip that one: n\n"
+                "If you want to exit: e\n"
+                "Your choice: "
+            )
+            print(interlude)
+
+            # validate:
+            if answer.upper() not in "YNE":
+                answer = input("Oopsie! Bad answer - type again: ")
+                print(interlude)
+
+            if answer.upper() == "Y":
+                print(f"Method: {method_key}\nDescription: {method_value}")
+                print(interlude)
+            elif answer.upper() == "E":
+                break
 
     if learn_or_play.upper() == "B":
-
         # choose subject of questions
         print(
             f"Welcome {player} in play game mode! Now, you have to choose, which subject you want to use in game. "
@@ -59,10 +128,12 @@ def game():
             f"Methods on tuples: type 'g'"
         )
         subject_input = input("Your choice: ")
+        print(interlude)
 
         # validating subject
         while subject_input.upper() not in "ABCDEFG":
             subject_input = input(f"Oopsie! Bad answer! Type again: ")
+            print(interlude)
 
         # adding subject dict
         if subject_input.upper() == "A":
@@ -86,7 +157,7 @@ def game():
             "\nCollect 10 points to win the game! "
             f"\nPoints: {points}"
         )
-        print("-" * 20)
+        print(interlude)
 
         # questions
         while number_of_question <= 10:
@@ -98,8 +169,8 @@ def game():
                 f"\nn (no) -> if you can't,"
                 f"\ne (exit) -> to exit the game."
             )
-            print("-" * 20)
             answer = input("Answer: ")
+            print(interlude)
             while answer.title() not in "YNE":
                 answer = input(
                     "Choose one option from below:"
@@ -107,16 +178,17 @@ def game():
                     "\nn (no) -> if you can't,"
                     "\ne (exit) -> to exit the game.\n"
                 )
+                print(interlude)
             if answer.title() == "Y":
                 points += 1
                 if points == 1:
                     print(f"Nice one! You have {points} point!")
                 else:
                     print(f"Nice one! You have {points} points!")
-                print("-" * 20)
+                print(interlude)
             elif answer.title() == "N":
                 print(f"Next time you'll get it!\nPoints: {points}")
-                print("-" * 20)
+                print(interlude)
             elif answer.title() == "E":
                 print("See you next time!")
                 break
