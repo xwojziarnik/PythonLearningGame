@@ -1,4 +1,4 @@
-liat_methods = {
+list_methods = {
     "append": """ Append object to the end of the list. """,
     "clear": """ Remove all items from list. """,
     "copy": """ Return a shallow copy of the list. """,
