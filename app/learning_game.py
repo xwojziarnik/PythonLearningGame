@@ -12,11 +12,14 @@ def game():
     """
     Bash game where user can learn about methods based on Python types.
 
-    The game has several stages:
-        - Introduction (user has to write his name/nickname),
-        - Short info about the game,
-        - Questions based on random chosen methods from a particular set -> chosen in the beginning,
-        - End of the game, where points are displayed and not known methods are explained.
+    Game has two modes:
+        - learn (infinite loop):
+            Choose subject get randomly chosen method and try to answer.
+            User can skip to next method, get description of method or exit.
+
+        - play game:
+            Choose subject and try to answer ten questions based methods in selected subject.
+            For every correct answer user is getting one point. After collecting 10 points user is winning the game.
     """
     # VARIABLES
     subject = None
@@ -43,7 +46,7 @@ def game():
     while learn_or_play.upper() not in "AB":
         learn_or_play = input(
             "Bad answer! You have to choose from 'a' (which stands for learning)\nor 'b' (which stands for "
-            "playing game). Remember to type letter a or b without quotes! "
+            "playing game).\nRemember to type letter a or b without quotes!\nChoice: "
         )
         print(interlude)
 
@@ -161,9 +164,11 @@ def game():
 
         # questions
         while number_of_question <= 10:
-            task = random.choice(list(subject.keys()))
+            task = random.choice(list(subject.items()))
+            key = task[0]
+            value = task[1]
             print(
-                f"Question number {number_of_question}:\nWhat does {task} method?"
+                f"Question number {number_of_question}:\nWhat does {key} method?"
                 f"\nType:"
                 f"\ny (yes) -> if you can explain,"
                 f"\nn (no) -> if you can't,"
@@ -177,6 +182,7 @@ def game():
                     "\ny (yes) -> if you can explain,"
                     "\nn (no) -> if you can't,"
                     "\ne (exit) -> to exit the game.\n"
+                    "Answer: "
                 )
                 print(interlude)
             if answer.title() == "Y":
@@ -188,6 +194,8 @@ def game():
                 print(interlude)
             elif answer.title() == "N":
                 print(f"Next time you'll get it!\nPoints: {points}")
+                print(interlude)
+                print(f"Here you can see method and the description:\nMethod:\n{key.title()}\n\nDescription:\n{value}")
                 print(interlude)
             elif answer.title() == "E":
                 print("See you next time!")
@@ -207,6 +215,23 @@ def game():
             print(
                 f"Don't be sad {player}. Try again - I think it's going to be better next time."
             )
+
+    # check if player wants to play again
+    print(interlude)
+    print(
+        "Thanks for playing my game! Do you want to play it once again?\n"
+        "Type:\nPlay once again: y\nNaaah, not this time: n"
+    )
+    choice = input("Your choice: ")
+
+    # validating
+    if choice.upper() not in "YN":
+        choice = input("Bad answer! Choose from above: ")
+
+    if choice.upper() == "Y":
+        game()
+    else:
+        print("Thank you for game! Bye! :)")
 
 
 if __name__ == "__main__":
