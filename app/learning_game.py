@@ -43,7 +43,7 @@ def game():
     print(interlude)
 
     # validating choice
-    while learn_or_play.upper() not in "AB":
+    while learn_or_play.upper() not in "AB" or learn_or_play in ["", "\n", "\t"]:
         learn_or_play = input(
             "Bad answer! You have to choose from 'a' (which stands for learning)\nor 'b' (which stands for "
             "playing game).\nRemember to type letter a or b without quotes!\nChoice: "
@@ -67,7 +67,7 @@ def game():
         print(interlude)
 
         # validating subject
-        while subject_input.upper() not in "ABCDEFG":
+        while subject_input.upper() not in "ABCDEFG" or subject_input in ["", "\n", "\t"]:
             subject_input = input(f"Oopsie! Bad answer! Type again: ")
             print(interlude)
 
@@ -107,7 +107,7 @@ def game():
             print(interlude)
 
             # validate:
-            if answer.upper() not in "YNE":
+            if answer.upper() not in "YNE" or answer in ["", "\n", "\t"]:
                 answer = input("Oopsie! Bad answer - type again: ")
                 print(interlude)
 
@@ -134,7 +134,7 @@ def game():
         print(interlude)
 
         # validating subject
-        while subject_input.upper() not in "ABCDEFG":
+        while subject_input.upper() not in "ABCDEFG" or subject_input in ["", "\n", "\t"]:
             subject_input = input(f"Oopsie! Bad answer! Type again: ")
             print(interlude)
 
@@ -176,7 +176,7 @@ def game():
             )
             answer = input("Answer: ")
             print(interlude)
-            while answer.title() not in "YNE":
+            while answer.title() not in "YNE" or answer in ["", "\n", "\t"]:
                 answer = input(
                     "Choose one option from below:"
                     "\ny (yes) -> if you can explain,"
@@ -225,7 +225,7 @@ def game():
     choice = input("Your choice: ")
 
     # validating
-    if choice.upper() not in "YN":
+    if choice.upper() not in "YN" or choice in ["", "\n", "\t"]:
         choice = input("Bad answer! Choose from above: ")
 
     if choice.upper() == "Y":
