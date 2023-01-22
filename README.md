@@ -166,13 +166,13 @@ Visit https://www.python.org/downloads/ and type which installing package you pr
 After download, go through installation process.
 After above, let's check if Python is installed on your computer. To do this, open your terminal or command prompt and type:
 For MacOS/Linux:
-```
-python3 --version
-```
+
+```python3 --version```
+
 For Windows:
-```
-python --version
-```
+
+```python --version```
+
 </details>
 
 ##  Download & run
