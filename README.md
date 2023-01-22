@@ -182,10 +182,13 @@ We've seen how to run venv. Keep that running!
 <summary>Now we can simply clone this repo, and see if it's working on our machine (in case we did everything above count creating virtualenv):</summary>
 
 ```
-git init                                                         # to initialize repository
 git clone https://github.com/xwojziarnik/PythonLearningGame      # to clone this repository into your local machine
 
 python3 app/learning_game.py
+
+ or
+
+bash run.sh
 ```
 </details>
 
