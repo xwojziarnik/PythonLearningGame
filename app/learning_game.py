@@ -1,5 +1,7 @@
 import random
 
+from itertools import count
+
 from additional_info.dict_methods import dict_methods
 from additional_info.int_float_bool_methods import int_bool_methods, float_methods
 from additional_info.list_methods import list_methods
@@ -55,13 +57,13 @@ def game():
         print(
             f"Welcome {player} in learning mode! Now, you have to choose, which subject you want to use in learning. "
             f"Choose from below:\n"
-            f"Methods on dictionaries: type 'a'\n"
-            f"Methods on integers/boolean: type 'b'\n"
-            f"Methods on floats: type 'c'\n"
-            f"Methods on lists: type 'd'\n"
-            f"Methods on sets: type 'e'\n"
-            f"Methods on strings: type 'f'\n"
-            f"Methods on tuples: type 'g'"
+            f"Methods on dictionaries: type 'a' / {len(dict_methods)}\n"
+            f"Methods on integers/boolean: type 'b' / {len(int_bool_methods)}\n"
+            f"Methods on floats: type 'c' / {len(float_methods)}\n"
+            f"Methods on lists: type 'd' / {len(list_methods)}\n"
+            f"Methods on sets: type 'e' / {len(set_method)}\n"
+            f"Methods on strings: type 'f' / {len(string_methods)}\n"
+            f"Methods on tuples: type 'g' / {len(tuple_methods)}"
         )
         subject_input = input("Your choice: ")
         print(interlude)
@@ -122,13 +124,13 @@ def game():
         print(
             f"Welcome {player} in play game mode! Now, you have to choose, which subject you want to use in game. "
             f"Choose from below:\n"
-            f"Methods on dictionaries: type 'a'\n"
-            f"Methods on integers/boolean: type 'b'\n"
-            f"Methods on floats: type 'c'\n"
-            f"Methods on lists: type 'd'\n"
-            f"Methods on sets: type 'e'\n"
-            f"Methods on strings: type 'f'\n"
-            f"Methods on tuples: type 'g'"
+            f"Methods on dictionaries: type 'a' / {len(dict_methods)}\n"
+            f"Methods on integers/boolean: type 'b' / {len(int_bool_methods)}\n"
+            f"Methods on floats: type 'c' / {len(float_methods)}\n"
+            f"Methods on lists: type 'd' / {len(list_methods)}\n"
+            f"Methods on sets: type 'e' / {len(set_method)}\n"
+            f"Methods on strings: type 'f' / {len(string_methods)}\n"
+            f"Methods on tuples: type 'g' / {len(tuple_methods)}"
         )
         subject_input = input("Your choice: ")
         print(interlude)
